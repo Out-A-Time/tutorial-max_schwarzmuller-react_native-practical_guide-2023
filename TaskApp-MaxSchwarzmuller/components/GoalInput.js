@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button, StyleSheet } from "react-native";
 import { useState } from "react";
 import React from "react";
 
