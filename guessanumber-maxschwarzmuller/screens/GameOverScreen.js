@@ -1,8 +1,10 @@
-import { TextInput, View } from "react-native"
+import { Text, View } from "react-native";
 
-function GameOverScreen(){
-    return <View>
-     <Text>This is game over screen</Text>
+function GameOverScreen() {
+  return (
+    <View>
+      <Text>This is game over screen</Text>
     </View>
+  );
 }
-export default GameOverScreen
+export default GameOverScreen;
