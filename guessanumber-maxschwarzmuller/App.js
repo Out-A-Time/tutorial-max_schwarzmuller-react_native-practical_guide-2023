@@ -12,6 +12,7 @@ import GameScreen from "./screens/GameScreen";
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRoundsNumber, setGuessRoundsNumber] = useState(0);
 
   //Splash screen is going to be shown while fonts are being loaded
   const [fontsLoaded] = useFonts({
@@ -31,6 +32,12 @@ export default function App() {
     setGameIsOver(true);
   }
 
+  function startNewGameHandler() {
+    console.log("Starting new game");
+    setUserNumber(null);
+    setGuessRoundsNumber(0);
+  }
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
   if (userNumber) {
     screen = (
@@ -38,7 +45,13 @@ export default function App() {
     );
   }
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen />;
+    screen = (
+      <GameOverScreen
+        userNumber={userNumber}
+        roundsNumber={guessRoundsNumber}
+        onStartNewGame={startNewGameHandler}
+      />
+    );
   }
 
   return (
